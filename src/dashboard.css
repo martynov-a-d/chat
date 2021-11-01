@@ -35,6 +35,15 @@
             width: 400px;
         }
 
+        .time_message {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 16px;
+            font-weight: 400;
+            color:rgb(61, 61, 61);
+            display: block;
+            text-align: end;
+        }
+
 .keyboard_block {
     background-color: blanchedalmond;
 }
