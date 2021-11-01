@@ -1,5 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 .dashboards {
     display: flex;
+    flex-direction: column;
     padding: 20px;
     background-color: blanchedalmond;
 }
@@ -28,3 +34,21 @@
             display: block;
             width: 400px;
         }
+
+.keyboard_block {
+    background-color: blanchedalmond;
+}
+
+    .keyboard_window {
+        display: block;
+        background-color: white;
+        border: 1px solid white;
+        color: black;
+        border-radius: 25px;
+        min-width: 400px;
+        text-align: end;
+        padding: 5px 20px 5px;
+        margin-top: 10px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 20px;
+    }
