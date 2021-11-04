@@ -1,11 +1,11 @@
 import React from "react";
 
-/**
- * 
- * @param {принимает JSON с сервера} props 
- * @returns Рендерит сообщения в основное окно сообщений
- */
+
 class Message extends React.Component {
+    /**
+     * 
+     * @returns Рендерит сообщения в основное окно сообщений
+     */
     render() {
         return (
             <>

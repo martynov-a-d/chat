@@ -7,10 +7,7 @@ import React from 'react';
 
 
 // const user = Request();
-/**
- * 
- * @returns Основное окно сообщений
- */
+
 class Dashboard extends React.Component{
 
     constructor() {
@@ -27,14 +24,18 @@ class Dashboard extends React.Component{
             time: "12:45",
         },
     ];
-render(){
-    return (
-        <div className="dashboards">
-            {/* <Message name={user.name} message={user.message} time={user.time} /> */}
-            <Message messages={this.state.messages} />
-            <Keyboard />
-        </div>
-    );}
+    /**
+     * 
+     * @returns Основное окно сообщений
+     */
+    render(){
+        return (
+            <div className="dashboards">
+                {/* <Message name={user.name} message={user.message} time={user.time} /> */}
+                <Message messages={this.state.messages} />
+                <Keyboard />
+            </div>
+        );}
 };
 
 export default Dashboard;
