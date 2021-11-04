@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
-
+/**
+ * 
+ * @returns Возвращает окно ввода сообщения и кнопку оптравки сообщения
+ */
 function Keyboard() {
 
     const [value, setValue] = useState('');
@@ -10,7 +13,7 @@ function Keyboard() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(value);
+        render(value);
         setValue('');
     };
 
@@ -21,5 +24,7 @@ function Keyboard() {
         </form>
     )
 }
-
+function render(test) {
+    console.log(test);
+}
 export default Keyboard;

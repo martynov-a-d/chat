@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {принимает JSON с сервера} props 
+ * @returns Рендерит сообщения в основное окно сообщений
+ */
 function Message(props) {
     return (
         <div className='message'>

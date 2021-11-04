@@ -1,16 +1,22 @@
 import Message from './message';
 import './dashboard.css';
 import Keyboard from './keyboard';
-// import Response from './request';
+// import Request from './request';
 
-const userName = 'ALEX';
-const userMessage = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
-const timeMessage = '12:45';
-
+const user = {
+    name: "ALEX",
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    time: "12:45",
+}
+// const user = Request();
+/**
+ * 
+ * @returns Основное окно сообщений
+ */
 function Dashboard(){
     return (
         <div className="dashboards">
-            <Message name={userName} message={userMessage} time={timeMessage} />
+            <Message name={user.name} message={user.message} time={user.time} />
             <Keyboard />
         </div>
     );
