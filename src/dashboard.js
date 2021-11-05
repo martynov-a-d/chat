@@ -9,13 +9,15 @@ import React from 'react';
 // const user = Request();
 
 class Dashboard extends React.Component{
-
+/**
+ * 
+ * @param {*} props
+ */
     constructor(props) {
         super(props)
         this.state = {
             messages: this.user,
-            // messages: '',
-        }
+        };
     };
     
     user = [
@@ -30,6 +32,10 @@ class Dashboard extends React.Component{
             time: "12:48",
         },
     ];
+    /**
+     * 
+     * @param {Введенный текст в поле Keyboard} elem 
+     */
     sendMessage = (elem) => {
         console.log(elem);
             const newMessage = {message: elem,}

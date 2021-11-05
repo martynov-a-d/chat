@@ -1,5 +1,5 @@
-import Dashboard from "./dashboard";
-import Message from "./message";
+import Dashboard from './dashboard';
+import Message from './message';
 /**
  * 
  * @returns Данные сообщений

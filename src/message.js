@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 
 class Message extends React.Component {
@@ -11,10 +11,10 @@ class Message extends React.Component {
             <>
                 {this.props.messages.map(message => {
                     return(
-                        <div className='message' key={message.id}>
-                            <p className='auhtor_name'>{ message.name }</p>
-                            <p className='auhtor_text'>{ message.message }</p>
-                            <p className='time_message'>{ message.time }</p>
+                        <div className="message" key={message.id}>
+                            <p className="auhtor_name">{ message.name }</p>
+                            <p className="auhtor_text">{ message.message }</p>
+                            <p className="time_message">{ message.time }</p>
                         </div>
                     )
                 })}
