@@ -10,25 +10,35 @@ import React from 'react';
 
 class Dashboard extends React.Component{
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             messages: this.user,
+            // messages: '',
         }
     };
     
     user = [
         {
-            name: "ALEX1",
-            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            name: "ALEX",
+            message: "Lorem ipsum dolor sit amet",
             time: "12:45",
         },
         {
-            name: "ALEX2",
-            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            time: "12:45",
+            name: "ALEX",
+            message: "Consectetur adipiscing elit",
+            time: "12:48",
         },
     ];
+    sendMessage = (elem) => {
+        console.log(elem);
+            const newMessage = {message: elem,}
+        
+        this.setState({
+            messages: [...this.state.messages, newMessage],
+        });
+        console.log(this.state.messages);
+    }
     /**
      * 
      * @returns Основное окно сообщений
@@ -38,17 +48,10 @@ class Dashboard extends React.Component{
             <div className="dashboards">
                 {/* <Message name={user.name} message={user.message} time={user.time} /> */}
                 <Message messages={this.state.messages} />
-                <Keyboard />
+                <Keyboard sendMessage={this.sendMessage} />
             </div>
         );
     }
 };
-export function sendMessage(elem) {
-    console.log(elem);
-    // this.setState({
-    //     message: elem,
-    // })
-    // console.log(this.user)
-}
 
 export default Dashboard;

@@ -1,5 +1,5 @@
 import React from "react";
-import { sendMessage } from "./dashboard";
+// import { sendMessage } from "./dashboard";
 /**
  * 
  * @returns Возвращает окно ввода сообщения и кнопку оптравки сообщения
@@ -21,7 +21,7 @@ class Keyboard extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        sendMessage(this.state.value)
+        this.props.sendMessage(this.state.value)
         this.setState({
             value: ''
         });
