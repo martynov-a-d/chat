@@ -23,12 +23,17 @@ class Dashboard extends React.Component{
     user = [
         {
             name: "ALEX",
-            message: "Lorem ipsum dolor sit amet",
+            message: "Привет, капец заморочено!)",
             time: "12:45",
         },
         {
             name: "ALEX",
-            message: "Consectetur adipiscing elit",
+            message: "Еле с гуглом сообразил как и что, к чему)))",
+            time: "12:48",
+        },
+        {
+            name: "ALEX",
+            message: "Но теперь поле ввода не обнуляется",
             time: "12:48",
         },
     ];
