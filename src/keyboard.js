@@ -1,30 +1,38 @@
-import React, {useState} from 'react'
+import React from "react";
+import { sendMessage } from "./dashboard";
 /**
  * 
  * @returns Возвращает окно ввода сообщения и кнопку оптравки сообщения
  */
-function Keyboard() {
+class Keyboard extends React.Component {
 
-    const [value, setValue] = useState('');
-
-    const handleChange = (e) => {
-        setValue(e.target.value)
+    constructor() {
+        super()
+        this.state = {
+            value: '',
+        }
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        render(value);
-        setValue('');
-    };
+    handleChange = (e) => {
+        this.setState({
+            value: e.target.value
+        })
+    }
 
-    return (
-        <form className='keyboard_block' onSubmit={ handleSubmit }>
-            <input type="text" className='keyboard_window' value={value} onChange={handleChange}/>
-            <input type="submit" className='keyboard_btn' value="send" />
-        </form>
-    )
-}
-function render(test) {
-    console.log(test);
+    handleSubmit = (e) => {
+        e.preventDefault();
+        sendMessage(this.state.value)
+        this.setState({
+            value: ''
+        });
+    };
+    render() {
+        return (
+            <form className='keyboard_block' onSubmit={ this.handleSubmit }>
+                <input type="text" className='keyboard_window' value={ this.value } onChange={ this.handleChange }/>
+                <input type="submit" className='keyboard_btn' value="send" />
+            </form>
+        )
+    }
 }
 export default Keyboard;
