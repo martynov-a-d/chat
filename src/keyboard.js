@@ -32,6 +32,10 @@ class Keyboard extends React.Component {
             value: '',
         })
     }
+    /**
+     * 
+     * @returns Рендерит онко ввода сообщений
+     */
     render() {
         return (
             <form className="keyboard_block" onSubmit={ this.handleSubmit }>

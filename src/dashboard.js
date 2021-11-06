@@ -15,6 +15,7 @@ class Dashboard extends React.Component{
             messages: this.user,
         }
     };
+    //---- Не забудь заменить это, на API ----//
     user = [
         {
             name: "ALEX",
@@ -46,7 +47,7 @@ class Dashboard extends React.Component{
     }
     /**
      * 
-     * @returns Основное окно сообщений
+     * @returns Рендерит основное окно сообщений
      */
     render() {
         return (
@@ -68,12 +69,10 @@ class Dashboard extends React.Component{
             const interval = setInterval(() => {
                 this.sendMessage("Ваше обращение принято, ожидайте)", "BOT");
                 stopTimeout()
-            }, 2000)
-            
+            }, 2000);
             function stopTimeout () {
                 clearTimeout(interval)
-            }
-            
+            } 
         } else {
             console.log(`Write ${elUpdateMSG[elUpdateMSG.length - 1].name}`);
         }
