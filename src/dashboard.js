@@ -17,8 +17,8 @@ class Dashboard extends React.Component{
         super(props)
         this.state = {
             messages: this.user,
-        };
-    };
+        }
+    }
     
     user = [
         {
@@ -41,14 +41,14 @@ class Dashboard extends React.Component{
      * 
      * @param {Введенный текст в поле Keyboard} elem 
      */
-    sendMessage = (elem) => {
-        console.log(elem);
-            const newMessage = {message: elem,}
-        
+    sendMessage = (elem, name) => {
+
+        const newMessage = {message: elem, name: name}
+
         this.setState({
             messages: [...this.state.messages, newMessage],
         });
-        console.log(this.state.messages);
+
     }
     /**
      * 
@@ -63,6 +63,20 @@ class Dashboard extends React.Component{
             </div>
         );
     }
-};
+    /**
+     * 
+     * @param {*} prevProps 
+     */
+    componentDidUpdate(prevProps) {
+        const test = prevProps
+        console.log(test.value)
+        // if(prevProps.value !== this.props.value) {
+        //     console.log("YAPPYY");
+        //     const qanda = "Q&A";
+        //     this.sendMessage(qanda);
+        // }
+        
+    }
+}
 
 export default Dashboard;

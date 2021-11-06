@@ -17,7 +17,8 @@ class Message extends React.Component {
                             <p className="time_message">{ message.time }</p>
                         </div>
                     )
-                })}
+                })
+                }
             </>  
         )
     }
