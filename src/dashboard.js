@@ -62,13 +62,21 @@ class Dashboard extends React.Component{
      * @param {*} Ничего сюда на передаем))) 
      */
     componentDidUpdate() {
-        const test = this.state.messages;
-        if (test.length && test[test.length - 1].name === "ALEX") {
-            console.log(test);
-            setInterval(() => {
+        const elUpdateMSG = this.state.messages;
+        if (elUpdateMSG.length && elUpdateMSG[elUpdateMSG.length - 1].name === "ALEX") {
+            console.log(elUpdateMSG);
+            const interval = setInterval(() => {
                 this.sendMessage("Ваше обращение принято, ожидайте)", "BOT");
-            }, 2000);
-        };
+                stopTimeout()
+            }, 2000)
+            
+            function stopTimeout () {
+                clearTimeout(interval)
+            }
+            
+        } else {
+            console.log(`Write ${elUpdateMSG[elUpdateMSG.length - 1].name}`);
+        }
     }
 };
 export default Dashboard;
