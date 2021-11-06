@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from 'react'
 
 class Message extends React.Component {
     /**
@@ -22,6 +21,5 @@ class Message extends React.Component {
             </>  
         )
     }
-};
-
+}
 export default Message;

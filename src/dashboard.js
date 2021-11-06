@@ -1,13 +1,9 @@
-import Message from './message';
-
-import Keyboard from './keyboard';
-import './dashboard.css';
-import React from 'react';
-// import Request from './request';
-
-
-// const user = Request();
-
+import Message from './message'
+import Keyboard from './keyboard'
+import './dashboard.css'
+import React from 'react'
+// import Request from './request'
+// const user = Request()
 class Dashboard extends React.Component{
 /**
  * 
@@ -18,8 +14,7 @@ class Dashboard extends React.Component{
         this.state = {
             messages: this.user,
         }
-    }
-    
+    };
     user = [
         {
             name: "ALEX",
@@ -43,12 +38,11 @@ class Dashboard extends React.Component{
      */
     sendMessage = (elem, name) => {
 
-        const newMessage = {message: elem, name: name}
+        const newMessage = {name: name, message: elem}
 
         this.setState({
             messages: [...this.state.messages, newMessage],
-        });
-
+        })
     }
     /**
      * 
@@ -69,11 +63,12 @@ class Dashboard extends React.Component{
      */
     componentDidUpdate() {
         const test = this.state.messages;
-        if (this.state.messages.length !== this.state.messages.length - 1) {
+        if (test.length && test[test.length - 1].name === "ALEX") {
             console.log(test);
-        }
-
+            setInterval(() => {
+                this.sendMessage("Ваше обращение принято, ожидайте)", "BOT");
+            }, 2000);
+        };
     }
-}
-
+};
 export default Dashboard;

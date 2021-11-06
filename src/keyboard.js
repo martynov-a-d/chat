@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 /**
  * 
  * @returns Возвращает окно ввода сообщения и кнопку оптравки сообщения
@@ -19,7 +19,7 @@ class Keyboard extends React.Component {
     handleChange = (e) => {
         this.setState({
             value: e.target.value
-        });
+        })
     }
 /**
  * 
@@ -30,7 +30,7 @@ class Keyboard extends React.Component {
         this.props.sendMessage(this.state.value, this.state.name)
         this.setState({
             value: '',
-        });
+        })
     }
     render() {
         return (
@@ -38,7 +38,7 @@ class Keyboard extends React.Component {
                 <input type="text" className="keyboard_window" value={ this.value } onChange={ this.handleChange }/>
                 <input type="submit" className="keyboard_btn" value="send" />
             </form>
-        );
+        )
     }
 }
 export default Keyboard;
