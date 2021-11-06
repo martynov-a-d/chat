@@ -65,17 +65,14 @@ class Dashboard extends React.Component{
     }
     /**
      * 
-     * @param {*} prevProps 
+     * @param {*} Ничего сюда на передаем))) 
      */
-    componentDidUpdate(prevProps) {
-        const test = prevProps
-        console.log(test.value)
-        // if(prevProps.value !== this.props.value) {
-        //     console.log("YAPPYY");
-        //     const qanda = "Q&A";
-        //     this.sendMessage(qanda);
-        // }
-        
+    componentDidUpdate() {
+        const test = this.state.messages;
+        if (this.state.messages.length !== this.state.messages.length - 1) {
+            console.log(test);
+        }
+
     }
 }
 
