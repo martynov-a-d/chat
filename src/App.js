@@ -1,6 +1,6 @@
 
 import './App.css';
-import Dashboard from './dashboard';
+import DisplayDevice from './displayDevice'
 /**
  * 
  * @returns Приложение чата
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Dashboard />
+        <DisplayDevice className="display_device" />
       </header>
     </div>
   );

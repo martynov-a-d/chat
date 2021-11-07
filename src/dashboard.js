@@ -2,8 +2,7 @@ import Message from './message'
 import Keyboard from './keyboard'
 import './dashboard.css'
 import React from 'react'
-// import Request from './request'
-// const user = Request()
+import Request from './request'
 class Dashboard extends React.Component{
 /**
  * 
@@ -15,27 +14,10 @@ class Dashboard extends React.Component{
             messages: this.user,
         }
     };
-    //---- Не забудь заменить это, на API ----//
-    user = [
-        {
-            name: "ALEX",
-            message: "Привет, капец заморочено!)",
-            time: "12:45",
-            id: 1,
-        },
-        {
-            name: "ALEX",
-            message: "Еле с гуглом сообразил как и что, к чему)))",
-            time: "12:48",
-            id: 2,
-        },
-        {
-            name: "ALEX",
-            message: "Но теперь поле ввода не обнуляется",
-            time: "12:48",
-            id: 3,
-        },
-    ];
+    /**
+     * Запрос API
+     */
+    user = Request();
     /**
      * 
      * @param {Введенный текст в поле Keyboard} elem 
@@ -70,7 +52,10 @@ class Dashboard extends React.Component{
     newDate() {
         const Data = new Date();
         const Hour = Data.getHours()
-        const Min = Data.getMinutes()
+        let Min = Data.getMinutes()
+        if (Min.toString().length < 2) {
+            Min = '0' + Min;
+        }
         return (`${Hour}:${Min}`)
     }
     /**
@@ -79,6 +64,9 @@ class Dashboard extends React.Component{
      */
     componentDidUpdate() {
         const elUpdateMSG = this.state.messages;
+        /**
+         * Если true отвечает BOT
+         */
         if (elUpdateMSG.length && elUpdateMSG[elUpdateMSG.length - 1].name === "ALEX") {
             console.log(elUpdateMSG);
             const interval = setInterval(() => {

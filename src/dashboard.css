@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+/* .display_device {
+    margin: 0 auto;
+} */
+
 .dashboards {
     display: flex;
     flex-direction: column;
