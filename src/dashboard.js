@@ -21,16 +21,19 @@ class Dashboard extends React.Component{
             name: "ALEX",
             message: "Привет, капец заморочено!)",
             time: "12:45",
+            id: 1,
         },
         {
             name: "ALEX",
             message: "Еле с гуглом сообразил как и что, к чему)))",
             time: "12:48",
+            id: 2,
         },
         {
             name: "ALEX",
             message: "Но теперь поле ввода не обнуляется",
             time: "12:48",
+            id: 3,
         },
     ];
     /**
@@ -38,9 +41,11 @@ class Dashboard extends React.Component{
      * @param {Введенный текст в поле Keyboard} elem 
      */
     sendMessage = (elem, name) => {
-
-        const newMessage = {name: name, message: elem}
-
+        const elUpdateMSG = this.state.messages;
+        const idAdder = elUpdateMSG[elUpdateMSG.length - 1].id;
+        const timeAdder = this.newDate();
+        const newMessage = {name: name, message: elem, id: idAdder + 1, time: timeAdder}
+        // console.log(elUpdateMSG[elUpdateMSG.length - 2].id);
         this.setState({
             messages: [...this.state.messages, newMessage],
         })
@@ -57,6 +62,16 @@ class Dashboard extends React.Component{
                 <Keyboard sendMessage={this.sendMessage} />
             </div>
         );
+    }
+    /**
+     * 
+     * @returns Возвращает текущее время (H:M)
+     */
+    newDate() {
+        const Data = new Date();
+        const Hour = Data.getHours()
+        const Min = Data.getMinutes()
+        return (`${Hour}:${Min}`)
     }
     /**
      * 
