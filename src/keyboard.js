@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '@mui/material/Button'
 /**
  * 
  * @returns Возвращает окно ввода сообщения и кнопку оптравки сообщения
@@ -40,7 +41,8 @@ class Keyboard extends React.Component {
         return (
             <form className="keyboard_block" onSubmit={ this.handleSubmit }>
                 <input type="text" className="keyboard_window" value={ this.value } onChange={ this.handleChange }/>
-                <input type="submit" className="keyboard_btn" value="send" />
+                {/* <input type="submit" className="keyboard_btn" value="send" /> */}
+                <Button variant="text" type="submit" className="keyboard_btn">send</Button>
             </form>
         )
     }
