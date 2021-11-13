@@ -11,13 +11,14 @@ class Dashboard extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
-            messages: this.user,
+            //---- Сообщения полученые с сервера ----//
+            messages: this.dataFetch,
         }
     };
     /**
      * Запрос API
      */
-    user = Request();
+    dataFetch = Request();
     /**
      * 
      * @param {Введенный текст в поле Keyboard} elem 

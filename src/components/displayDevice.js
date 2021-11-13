@@ -1,5 +1,5 @@
 import React from 'react';
-import ChatList from './chatList'
+import { ChatList } from './chatList'
 import Dashboard from './dashboard';
 /**
  * 
@@ -14,13 +14,13 @@ class displayDevice extends React.Component {
         }
     }
     //---- Необходимо посмотреть что не работает ----//
-    componentDidUpdate() {
-        if(this.isHidden) {
-            this.setState({
-                elDashboard: <Dashboard />
-            })
-        }
-    }
+    // componentDidUpdate() {
+    //     if(this.isHidden) {
+    //         this.setState({
+    //             elDashboard: <Dashboard />
+    //         })
+    //     }
+    // }
     /**
      * 
      * @returns Возвращает список чатов и окно сообщений
@@ -28,7 +28,7 @@ class displayDevice extends React.Component {
     render() {
         return (<div>
             <ChatList isHidden={this.state.isHidden}/>
-            { this.elDashboard }
+            {/* { this.elDashboard } */}
             <Dashboard />
         </div>)
     }

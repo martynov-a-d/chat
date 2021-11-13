@@ -30,7 +30,7 @@ class Keyboard extends React.Component {
         e.preventDefault();
         this.props.sendMessage(this.state.value, this.state.name)
         this.setState({
-            value: '',
+            value: "",
         })
     }
     /**
