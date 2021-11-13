@@ -9,25 +9,26 @@ class displayDevice extends React.Component {
     constructor() {
         super()
         this.state = {
-            // isHidden: true,
-            // elDashboard: <Dashboard />,
+            isHidden: true,
+            elDashboard: '',
         }
     }
-    //---- Что-то пошло не так, не понял почему не работает ----//
-    // componentDidUpdate() {
-    //     if(this.isHidden) {
-    //         this.State({
-    //             elDashboard: <Dashboard />
-    //         })
-    //     }
-    // }
-    // if(isHidden) {
-    //     elDashboard = <Dashboard />;
-    // }
+    //---- Необходимо посмотреть что не работает ----//
+    componentDidUpdate() {
+        if(this.isHidden) {
+            this.setState({
+                elDashboard: <Dashboard />
+            })
+        }
+    }
+    /**
+     * 
+     * @returns Возвращает список чатов и окно сообщений
+     */
     render() {
         return (<div>
             <ChatList isHidden={this.state.isHidden}/>
-            {/* { this.elDashboard } */}
+            { this.elDashboard }
             <Dashboard />
         </div>)
     }

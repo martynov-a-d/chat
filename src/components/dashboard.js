@@ -60,15 +60,15 @@ class Dashboard extends React.Component{
     }
     /**
      * 
-     * @param {*} Ничего сюда на передаем))) 
+     * @param {*} Предыдущее состояние state (Надо переделать логику)
      */
-    componentDidUpdate() {
+    componentDidUpdate() {  // prevState
         const elUpdateMSG = this.state.messages;
         /**
-         * Если true отвечает BOT
+         * Если количество сообщений в state изменилось, отвечает BOT
          */
         if (elUpdateMSG.length && elUpdateMSG[elUpdateMSG.length - 1].name === "ALEX") {
-            console.log(elUpdateMSG);
+            // console.log(elUpdateMSG);
             const interval = setInterval(() => {
                 this.sendMessage("Ваше обращение принято, ожидайте)", "BOT");
                 stopTimeout()
@@ -77,7 +77,7 @@ class Dashboard extends React.Component{
                 clearTimeout(interval)
             } 
         } else {
-            console.log(`Write ${elUpdateMSG[elUpdateMSG.length - 1].name}`);
+            // console.log(`Write ${elUpdateMSG[elUpdateMSG.length - 1].name}`);
         }
     }
 };
