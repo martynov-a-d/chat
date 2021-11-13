@@ -1,18 +1,26 @@
-
-import './App.css';
-import DisplayDevice from './displayDevice'
+//---- import / export ----//
+import React from 'react'
+import { BrowserRouter, Link, Routes, Route } from 'react-router-dom'
+import { Chats } from './components/chats/chats'
+import { Home } from './components/home'
 /**
  * 
- * @returns Приложение чата
+ * @returns Возвращает приложение 
  */
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <DisplayDevice className="display_device" />
-      </header>
-    </div>
-  );
-}
+export const App = () => {
+  return (<BrowserRouter>
+    <ul>
+      <li>
+          <Link to = "/">Home</Link>
+        </li>
+        <li>
+          <Link to = "chats">Chats</Link>
+        </li>
+    </ul>
 
-export default App;
+    <Routes>
+      <Route path="/" element={ <Home /> } />
+      <Route path="/chats" element={ <Chats /> } />
+    </Routes>
+  </BrowserRouter>
+)}
