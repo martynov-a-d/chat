@@ -3,6 +3,7 @@ import Keyboard from './keyboard'
 import './dashboard.css'
 import React from 'react'
 import Request from './request'
+// import { useParams } from 'react-router'
 class Dashboard extends React.Component{
 /**
  * 
@@ -14,6 +15,7 @@ class Dashboard extends React.Component{
             //---- Сообщения полученые с сервера ----//
             messages: this.dataFetch,
         }
+        // const params = useParams
     };
     /**
      * Запрос API
@@ -24,6 +26,7 @@ class Dashboard extends React.Component{
      * @param {Введенный текст в поле Keyboard} elem 
      */
     sendMessage = (elem, name) => {
+
         const elUpdateMSG = this.state.messages;
         const idAdder = elUpdateMSG[elUpdateMSG.length - 1].id;
         const timeAdder = this.newDate();

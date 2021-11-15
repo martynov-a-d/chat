@@ -1,6 +1,12 @@
 import React from 'react'
+import { useParams } from 'react-router';
 
 class Message extends React.Component {
+    componentDidMount() {
+        const params = useParams
+        const test23 = this.props.messages;
+        console.log(test23, params);
+    }
     /**
      * 
      * @returns Рендерит сообщения в основное окно сообщений
