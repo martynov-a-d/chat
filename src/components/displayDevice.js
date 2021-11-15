@@ -5,32 +5,19 @@ import Dashboard from './dashboard';
  * 
  * @returns Возвращает окно чата
  */
-class displayDevice extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            isHidden: true,
-            elDashboard: '',
-        }
-    }
-    //---- Необходимо посмотреть что не работает ----//
-    // componentDidUpdate() {
-    //     if(this.isHidden) {
-    //         this.setState({
-    //             elDashboard: <Dashboard />
-    //         })
-    //     }
-    // }
+function DisplayDevice() {
+
     /**
      * 
      * @returns Возвращает список чатов и окно сообщений
      */
-    render() {
-        return (<div>
-            <ChatList isHidden={this.state.isHidden}/>
-            {/* { this.elDashboard } */}
+    
+    return <>
+        <div>
+            <ChatList />
             <Dashboard />
-        </div>)
-    }
+        </div>
+    </>
 };
-export default displayDevice;
+
+export default DisplayDevice;
