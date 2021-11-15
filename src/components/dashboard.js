@@ -1,9 +1,10 @@
+//---- import / export ----//
 import Message from './message'
 import Keyboard from './keyboard'
 import './dashboard.css'
 import React from 'react'
 import Request from './request'
-// import { useParams } from 'react-router'
+
 class Dashboard extends React.Component{
 /**
  * 
@@ -15,8 +16,7 @@ class Dashboard extends React.Component{
             //---- Сообщения полученые с сервера ----//
             messages: this.dataFetch,
         }
-        // const params = useParams
-    };
+    }
     /**
      * Запрос API
      */
@@ -27,11 +27,10 @@ class Dashboard extends React.Component{
      */
     sendMessage = (elem, name) => {
 
-        const elUpdateMSG = this.state.messages;
-        const idAdder = elUpdateMSG[elUpdateMSG.length - 1].id;
-        const timeAdder = this.newDate();
-        const newMessage = {name: name, message: elem, id: idAdder + 1, time: timeAdder}
-        // console.log(elUpdateMSG[elUpdateMSG.length - 2].id);
+        const elUpdateMSG = this.state.messages
+        const idAdder = elUpdateMSG[elUpdateMSG.length - 1].id
+        const timeAdder = this.newDate()
+        const newMessage = {name: name, message: elem, id: idAdder + 1, time: timeAdder};
         this.setState({
             messages: [...this.state.messages, newMessage],
         })
@@ -72,7 +71,7 @@ class Dashboard extends React.Component{
          * Если количество сообщений в state изменилось, отвечает BOT
          */
         if (elUpdateMSG.length && elUpdateMSG[elUpdateMSG.length - 1].name === "ALEX") {
-            // console.log(elUpdateMSG);
+
             const interval = setInterval(() => {
                 this.sendMessage("Ваше обращение принято, ожидайте)", "BOT");
                 stopTimeout()

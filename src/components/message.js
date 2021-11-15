@@ -1,8 +1,12 @@
+//---- import / export ----//
 import React from 'react'
 import { useParams } from 'react-router';
 
 function Message(props) {
-
+    /**
+     * 
+     * Хук возвращает объект с параметрами URL 
+     */
     const {chatId} = useParams()
 
     /**
