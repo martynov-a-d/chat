@@ -2,7 +2,7 @@
 import React from 'react'
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom'
 import { Chats } from './components/chats/chats'
-import { ChatList } from './components/chatList'
+import ChatList from './components/chatList'
 import { Home } from './components/home'
 import { Profile } from './components/profile'
 /**

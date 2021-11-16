@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChatList } from './chatList'
+import ChatList from './chatList';
 import Dashboard from './dashboard';
 /**
  * 
