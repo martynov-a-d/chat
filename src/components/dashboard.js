@@ -23,7 +23,7 @@ class Dashboard extends React.Component{
     dataFetch = Request();
     /**
      * 
-     * @param {Введенный текст в поле Keyboard} elem 
+     * @param {Введенный текст в поле Keyboard, имя написавшего} elem 
      */
     sendMessage = (elem, name) => {
 
@@ -38,6 +38,8 @@ class Dashboard extends React.Component{
     /**
      * 
      * @returns Рендерит основное окно сообщений
+     * ---- Message возвращает сообщения в основное окно сообщений ----
+     * ---- Keyboard возвращает окно ввода нового сообщения ----
      */
     render() {
         return (

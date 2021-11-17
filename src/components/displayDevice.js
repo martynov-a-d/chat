@@ -1,3 +1,4 @@
+//---- import / export ----//
 import React from 'react';
 import ChatList from './chatList';
 import Dashboard from './dashboard';
@@ -9,7 +10,9 @@ function DisplayDevice() {
 
     /**
      * 
-     * @returns Возвращает список чатов и окно сообщений
+     * @returns Возвращает 
+     * ---- ChatList список чатов и ----
+     * ---- Dashboard окно сообщений ----
      */
     
     return <>

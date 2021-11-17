@@ -10,7 +10,8 @@ import { Profile } from './components/profile'
  * @returns Возвращает приложение 
  */
 export const App = () => {
-  return (<BrowserRouter>
+  return (
+  <BrowserRouter>
     <ul>
         <li>
           <Link to = "/">Home</Link>
