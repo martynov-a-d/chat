@@ -78,6 +78,9 @@ class Dashboard extends React.Component{
                 this.sendMessage("Ваше обращение принято, ожидайте)", "BOT");
                 stopTimeout()
             }, 2000);
+            /**
+             * ---- Остановка интервала interval, если не выносить отдельно логика ломается ----
+             */
             function stopTimeout () {
                 clearTimeout(interval)
             } 

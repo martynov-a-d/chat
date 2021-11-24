@@ -22,6 +22,11 @@ class ChatList extends React.Component{
             ]
         }
     }
+    /**
+     * 
+     * @param {*} e 
+     * ---- Функция добавления нового чата ----
+     */
     addNewChat = (e) => {
         e.preventDefault();
         const elem = this.state.chatList
@@ -33,6 +38,15 @@ class ChatList extends React.Component{
             chatList: [...this.state.chatList, newChat],
         });
     }
+    /**
+     * 
+     * @param {*} e 
+     * ---- Функция удаления выбранного чата ----
+     */
+    delThisChat = (e) => {
+        const elem = this.state.chatList
+        console.log(elem);
+    }
     
     /**
      * 
@@ -42,7 +56,7 @@ class ChatList extends React.Component{
         return (
             <>
                 <button onClick={ this.addNewChat }>Add chat</button>
-                <button>Del chat</button>
+                <button onClick={ this.delThisChat }>Del chat</button>
                 {this.state.chatList.map((chat) => (
                     <NavLink
                         style={({ isActive }) => ({ color: isActive ? "white" : "grey" })} 
