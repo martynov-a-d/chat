@@ -26,20 +26,14 @@ class ChatList extends React.Component{
         e.preventDefault();
         const elem = this.state.chatList
         console.log(elem);
-        const chat = this.test43()
-        const newChat = {name: chat, id: chat}
+        const newChat_elem = `chat${elem.length + 1}`
+        const newChat = {name: newChat_elem, id: newChat_elem}
         console.log(newChat);
         this.setState({
             chatList: [...this.state.chatList, newChat],
-        })
-        // this.chatList.push({name: "chat"+(elem+1), id: "chat"+(elem+1)})
+        });
     }
-    test43() {
-        const test53 = this.state.chatList
-        const test63 = test53[test53.lenght - 1].name
-        const newChat = ("chat" + test63)
-        console.log(newChat);
-    }
+    
     /**
      * 
      * @returns Возвращает меню чатов
