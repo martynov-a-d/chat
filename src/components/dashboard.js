@@ -36,7 +36,6 @@ function Dashboard() {
             state[chatId][state[chatId].length - 1].name === "ALEX") {
 
             const interval = setInterval(() => {
-                console.log(state[chatId]);
                 sendMessage("Ваше обращение принято, ожидайте)", "BOT");
                 stopTimeout();
             }, 2000);
@@ -47,7 +46,7 @@ function Dashboard() {
                 clearTimeout(interval)
             };
         } else {
-            console.log(`Write ${state[chatId][state[chatId].length - 1].name}`);
+            // console.log(`Write ${state[chatId][state[chatId].length - 1].name}`);
         };
     });
     /**
@@ -62,7 +61,6 @@ function Dashboard() {
             ...prevState,
             [chatId]: [...state[chatId], newMessage],
         }))
-        console.log(...state[chatId]);
     }
     /**
      * 

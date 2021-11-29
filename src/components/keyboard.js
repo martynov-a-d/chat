@@ -20,8 +20,7 @@ function Keyboard(props) {
         setState((prevState) => ({
             ...prevState,
             value: e.target.value
-        }))
-        console.log(state);
+        }));
     };
 /**
  * 
