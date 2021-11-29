@@ -23,7 +23,7 @@ function Dashboard() {
      * Хук возвращает объект с параметрами URL 
      */
     const {chatId} = useParams()
-    const elUpdateMSG = state[chatId];
+    // const elUpdateMSG = state[chatId];
     /**
      * 
      * @param {*} Предыдущее состояние state (Надо переделать логику)
@@ -32,11 +32,11 @@ function Dashboard() {
         /**
          * Если количество сообщений в state изменилось, отвечает BOT
          */
-        if (elUpdateMSG.length && 
-            elUpdateMSG[elUpdateMSG.length - 1].name === "ALEX") {
+        if (state[chatId].length && 
+            state[chatId][state[chatId].length - 1].name === "ALEX") {
 
             const interval = setInterval(() => {
-                console.log(elUpdateMSG);
+                console.log(state[chatId]);
                 // sendMessage("Ваше обращение принято, ожидайте)", "BOT");
                 stopTimeout();
             }, 2000);
@@ -47,7 +47,7 @@ function Dashboard() {
                 clearTimeout(interval)
             };
         } else {
-            console.log(`Write ${elUpdateMSG[elUpdateMSG.length - 1].name}`);
+            console.log(`Write ${state[chatId][state[chatId].length - 1].name}`);
         };
     });
     /**
@@ -55,16 +55,14 @@ function Dashboard() {
      * @param {Введенный текст в поле Keyboard, имя написавшего} elem 
      */
     function sendMessage(elem, name){
-
-        // const elUpdateMSG = state[chatId].messages
-        console.log(...state[chatId]);
-        const idAdder = elUpdateMSG[elUpdateMSG.length - 1].id
+        const idAdder = state[chatId][state[chatId].length - 1].id
         const timeAdder = newDate()
         const newMessage = {name: name, message: elem, id: idAdder + 1, time: timeAdder};
-        console.log(newMessage);
-        setState({
-            // state: [...state[chatId], newMessage],
-        })
+        setState((prevState) => ({
+            ...prevState,
+            [chatId]: [...state[chatId], newMessage],
+        }))
+        console.log(...state[chatId]);
     }
     /**
      * 
