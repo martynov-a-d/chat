@@ -17,9 +17,11 @@ function Keyboard(props) {
  * @param {Событие} e 
  */
     function handleChange(e) {
-        setState({
+        setState((prevState) => ({
+            ...prevState,
             value: e.target.value
-        })
+        }))
+        console.log(state);
     };
 /**
  * 

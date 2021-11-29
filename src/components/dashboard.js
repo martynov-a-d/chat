@@ -37,7 +37,7 @@ function Dashboard() {
 
             const interval = setInterval(() => {
                 console.log(state[chatId]);
-                // sendMessage("Ваше обращение принято, ожидайте)", "BOT");
+                sendMessage("Ваше обращение принято, ожидайте)", "BOT");
                 stopTimeout();
             }, 2000);
             /**
