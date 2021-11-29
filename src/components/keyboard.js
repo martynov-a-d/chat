@@ -5,17 +5,7 @@ import Button from '@mui/material/Button'
  * 
  * @returns Возвращает окно ввода сообщения и кнопку оптравки сообщения
  */
-// class Keyboard extends React.Component {
-
-//     constructor(props) {
-//         super(props)
-//         this.state = {
-//             value: "",
-//             name: "ALEX",
-//         }
-//     }
-
-const Keyboard = (props) => {
+function Keyboard(props) {
     const initialState = {
         value: "",
         name: "ALEX",

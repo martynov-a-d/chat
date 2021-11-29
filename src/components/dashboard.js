@@ -10,22 +10,13 @@ import { useParams } from 'react-router'
  * Запрос API
  */
 const dataFetch = Request();
+//---- Сообщения полученые с сервера ----//
 const initialState = dataFetch;
-
-// class Dashboard extends React.Component{
-function Dashboard() {
 /**
  * 
- * @param {*} props
+ * @returns Возвращает основное окно
  */
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         //---- Сообщения полученые с сервера ----//
-    //         messages: this.dataFetch,
-    //     }
-    // }
-
+function Dashboard() {
     const [state, setState] = useState(initialState)
     /**
      * 
@@ -38,11 +29,11 @@ function Dashboard() {
      * @param {*} Предыдущее состояние state (Надо переделать логику)
      */
      useEffect(() => {  // prevState
-        // const elUpdateMSG = state[chatId].messages;
         /**
          * Если количество сообщений в state изменилось, отвечает BOT
          */
-        if (false/*elUpdateMSG.length && elUpdateMSG[elUpdateMSG.length - 1].name === "ALEX"*/) {
+        if (elUpdateMSG.length && 
+            elUpdateMSG[elUpdateMSG.length - 1].name === "ALEX") {
 
             const interval = setInterval(() => {
                 console.log(elUpdateMSG);
@@ -72,24 +63,22 @@ function Dashboard() {
         const newMessage = {name: name, message: elem, id: idAdder + 1, time: timeAdder};
         console.log(newMessage);
         setState({
-            state: [...state[chatId], newMessage],
+            // state: [...state[chatId], newMessage],
         })
     }
     /**
      * 
-     * @returns Рендерит основное окно сообщений
+     * @returns Возвращает основное окно сообщений
      * ---- Message возвращает сообщения в основное окно сообщений ----
      * ---- Keyboard возвращает окно ввода нового сообщения ----
      */
-    // render() {
-        return (
-            <div className="dashboards">
-                {/* <Message name={user.name} message={user.message} time={user.time} /> */}
-                <Message messages={state} />
-                <Keyboard sendMessage={sendMessage} />
-            </div>
-        );
-    // }
+    return (
+        <div className="dashboards">
+            {/* <Message name={user.name} message={user.message} time={user.time} /> */}
+            <Message messages={state[chatId]} />
+            <Keyboard sendMessage={sendMessage} />
+        </div>
+    );
     /**
      * 
      * @returns Возвращает текущее время (H:M)

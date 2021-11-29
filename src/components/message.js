@@ -1,21 +1,14 @@
 //---- import / export ----//
 import React from 'react'
-import { useParams } from 'react-router'
+// import { useParams } from 'react-router'
 function Message(props) {
-    /**
-    * 
-    * Хук возвращает объект с параметрами URL 
-    */
-    const {chatId} = useParams()
-    console.log(props.messages[chatId]);
     /**
      * 
      * @returns Рендерит сообщения в основное окно сообщений
      */
-
     return (
         <>
-            {props.messages[chatId].map(message => {
+            {props.messages.map(message => {
                 return(
                     <div className="message" key={message.id}>
                         <p className="auhtor_name">{ message.name }</p>
