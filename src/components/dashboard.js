@@ -3,7 +3,7 @@ import Message from './message'
 import Keyboard from './keyboard'
 import './dashboard.css';
 // import Request from './request'
-import React, { useEffect } from 'react'
+// import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux';
 import { addMessage } from '../store/messages/actions'
@@ -31,43 +31,40 @@ function Dashboard() {
      * 
      * @param {*} Предыдущее состояние state (Надо переделать логику)
      */
-     useEffect(() => {  // prevState
-        /**
-         * Если количество сообщений в state изменилось, отвечает BOT
-         */
-        if (messagesStore[chatId].length && 
-            messagesStore[chatId][messagesStore[chatId].length - 1].name === "ALEX") {
+    //  useEffect(() => {  // prevState
+    //     /**
+    //      * Если количество сообщений в state изменилось, отвечает BOT
+    //      */
+    //     if (messagesStore[chatId].length && 
+    //         messagesStore[chatId][messagesStore[chatId].length - 1].name === "ALEX") {
 
-            const interval = setInterval(() => {
-                sendMessage("Ваше обращение принято, ожидайте)", "BOT");
-                stopTimeout();
-            }, 2000);
-            /**
-             * ---- Остановка интервала interval, если не выносить отдельно логика ломается ----
-             */
-            function stopTimeout () {
-                clearTimeout(interval)
-            };
-        } else {
-            // console.log(`Write ${state[chatId][state[chatId].length - 1].name}`);
-        };
-    });
+    //         const interval = setInterval(() => {
+    //             sendMessage("Ваше обращение принято, ожидайте)", "BOT");
+    //             stopTimeout();
+    //         }, 2000);
+    //         /**
+    //          * ---- Остановка интервала interval, если не выносить отдельно логика ломается ----
+    //          */
+    //         function stopTimeout () {
+    //             clearTimeout(interval)
+    //         };
+    //     } else {
+    //         // console.log(`Write ${state[chatId][state[chatId].length - 1].name}`);
+    //     };
+    // });
     /**
      * 
      * @param {Введенный текст в поле Keyboard, имя написавшего} elem 
      */
-    // function sendMessage(elem, name){
-    //     const idAdder = state[chatId][state[chatId].length - 1].id
-    //     const timeAdder = newDate()
-    //     const newMessage = {name: name, message: elem, id: idAdder + 1, time: timeAdder};
-    //     setState((prevState) => ({
-    //         ...prevState,
-    //         [chatId]: [...state[chatId], newMessage],
-    //     }))
-    // }
+    function sendMessage(elem, name){
+        // const idAdder = messagesStore[chatId][messagesStore[chatId].length - 1].id
+        const timeAdder = newDate()
+        const newMessage = {name: name, message: elem, time: timeAdder};
+        test(newMessage, name)
+    }
     const dispatch = useDispatch();
 
-    const sendMessage = (elem, name) => {
+    const test = (elem, name) => {
       dispatch(addMessage(elem, name, messagesStore[chatId]));
     }
     /**
@@ -79,7 +76,7 @@ function Dashboard() {
     return (
         <div className="dashboards">
             {/* <Message name={user.name} message={user.message} time={user.time} /> */}
-            <Message messages={messagesStore[chatId]} />
+            <Message messages={messagesStore} />
             <Keyboard sendMessage={sendMessage} />
         </div>
     );
