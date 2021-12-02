@@ -19,14 +19,13 @@ import { addMessage } from '../store/messages/actions'
  * @returns Возвращает основное окно
  */
 function Dashboard() {
-    // const [state, setState] = useState(initialState)
     const messagesStore = useSelector(store => store.messages.messageList)
+    console.log(messagesStore);
     /**
      * 
      * Хук возвращает объект с параметрами URL 
      */
     const {chatId} = useParams()
-    // const elUpdateMSG = state[chatId];
     /**
      * 
      * @param {*} Предыдущее состояние state (Надо переделать логику)
@@ -57,16 +56,14 @@ function Dashboard() {
      * @param {Введенный текст в поле Keyboard, имя написавшего} elem 
      */
     function sendMessage(elem, name){
-        // const idAdder = messagesStore[chatId][messagesStore[chatId].length - 1].id
         const timeAdder = newDate()
-        const newMessage = {name: name, message: elem, time: timeAdder};
-        // console.log([chatId]);
+        const newMessage = {name: name, message: elem, time: timeAdder}
         test(newMessage, name)
     }
     const dispatch = useDispatch();
 
     const test = (elem, name) => {
-      dispatch(addMessage(elem, name, [chatId]));
+      dispatch(addMessage(elem, name, [chatId]))
     }
     /**
      * 
@@ -76,7 +73,6 @@ function Dashboard() {
      */
     return (
         <div className="dashboards">
-            {/* <Message name={user.name} message={user.message} time={user.time} /> */}
             <Message messages={messagesStore[chatId]} />
             <Keyboard sendMessage={sendMessage} />
         </div>
@@ -94,7 +90,7 @@ export function newDate() {
     const Hour = Data.getHours()
     let Min = Data.getMinutes()
     if (Min.toString().length < 2) {
-        Min = '0' + Min;
+        Min = '0' + Min
     }
     return (`${Hour}:${Min}`)
 };
