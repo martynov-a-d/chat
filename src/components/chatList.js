@@ -1,50 +1,41 @@
 //---- import / export ----//
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { addChat } from "../store/chats/actions";
 
-class ChatList extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            chatList: [
-                {
-                    name: "chat1",
-                    id: "chat1",
-                },
-                {
-                    name: "chat2",
-                    id: "chat2",
-                },
-                {
-                    name: "chat3",
-                    id: "chat3",
-                },
-            ]
-        }
-    }
+function ChatList() {
+    
+    const chats = useSelector((state) => state.chats.chatList)
+    const dispatch = useDispatch()
     /**
      * 
      * @param {*} e 
      * ---- Функция добавления нового чата ----
      */
-    addNewChat = (e) => {
+    const addNewChat = (e) => {
         e.preventDefault();
-        const elem = this.state.chatList
-        console.log(elem);
+        const elem = chats
         const newChat_elem = `chat${elem.length + 1}`
         const newChat = {name: newChat_elem, id: newChat_elem}
-        console.log(newChat);
-        this.setState({
-            chatList: [...this.state.chatList, newChat],
-        });
+        // this.setState({
+        //     chatList: [...this.state.chatList, newChat],
+        // });
+        test(newChat)
     }
+
+    const test = (chatName) => {
+        console.log(chatName);
+        dispatch(addChat(chatName))
+    }
+
     /**
      * 
      * @param {*} e 
      * ---- Функция удаления выбранного чата ----
      */
-    delThisChat = (e) => {
-        const elem = this.state.chatList
+    const delThisChat = (e) => {
+        const elem = chats
         console.log(elem);
     }
     
@@ -52,22 +43,22 @@ class ChatList extends React.Component{
      * 
      * @returns Возвращает меню чатов
      */
-    render () {
-        return (
-            <>
-                <button onClick={ this.addNewChat }>Add chat</button>
-                <button onClick={ this.delThisChat }>Del chat</button>
-                {this.state.chatList.map((chat) => (
-                    <NavLink
-                        style={({ isActive }) => ({ color: isActive ? "white" : "grey" })} 
-                        to = {`/chats/${chat.id}`} key={chat.id}
-                        >
-                            {chat.name}
-                    </NavLink>
-                ))}        
-            </>
-        )
-    }
+
+    return (
+        <>
+            <button onClick={ addNewChat }>Add chat</button>
+            <button onClick={ delThisChat }>Del chat</button>
+            {chats.map((chat) => (
+                <NavLink
+                    style={({ isActive }) => ({ color: isActive ? "white" : "grey" })} 
+                    to = {`/chats/${chat.id}`} key={chat.id}
+                    >
+                        {chat.name}
+                </NavLink>
+            ))}        
+        </>
+    )
+
 }
 
 export default ChatList;

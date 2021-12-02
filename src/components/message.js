@@ -2,7 +2,6 @@
 import React from 'react'
 // import { useParams } from 'react-router'
 function Message(props) {
-    console.log(props.messages)
     /**
      * 
      * @returns Рендерит сообщения в основное окно сообщений
