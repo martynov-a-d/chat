@@ -25,8 +25,8 @@ export const chatsReducer = (state = initialState, action) => {
           chatList: [
             ...state.chatList,
             {
-              id: `id${state.chatList.length}`,
               name: action.name,
+              id: `chat${state.chatList.length + 1}`,
             },
           ],
         };

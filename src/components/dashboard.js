@@ -14,6 +14,7 @@ import { addMessage } from '../store/messages/actions'
 // const dataFetch = Request();
 //---- Сообщения полученые с сервера ----//
 // const initialState = dataFetch;
+
 /**
  * 
  * @returns Возвращает основное окно
@@ -60,7 +61,11 @@ function Dashboard() {
         test(newMessage, name)
     }
     const dispatch = useDispatch();
-
+    /**
+     * 
+     * @param {*} elem 
+     * @param {*} name 
+     */
     const test = (elem, name) => {
       dispatch(addMessage(elem, name, [chatId]))
     }
@@ -76,14 +81,13 @@ function Dashboard() {
             <Keyboard sendMessage={sendMessage} />
         </div>
     );
-    /**
-     * 
-     * @returns Возвращает текущее время (H:M)
-     */
 };
 
 export default Dashboard;
-
+/**
+ * 
+ * @returns Возвращает текущее время (H:M)
+ */
 export function newDate() {
     const Data = new Date();
     const Hour = Data.getHours()

@@ -17,7 +17,7 @@ function ChatList() {
         e.preventDefault();
         const elem = chats
         const newChat_elem = `chat${elem.length + 1}`
-        const newChat = {name: newChat_elem, id: newChat_elem}
+        const newChat = {id: newChat_elem, name: newChat_elem}
         // this.setState({
         //     chatList: [...this.state.chatList, newChat],
         // });
@@ -25,7 +25,6 @@ function ChatList() {
     }
 
     const test = (chatName) => {
-        console.log(chatName);
         dispatch(addChat(chatName))
     }
 
@@ -38,12 +37,12 @@ function ChatList() {
         const elem = chats
         console.log(elem);
     }
-    
+
     /**
      * 
      * @returns Возвращает меню чатов
      */
-
+    
     return (
         <>
             <button onClick={ addNewChat }>Add chat</button>
