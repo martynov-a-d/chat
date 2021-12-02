@@ -1,14 +1,16 @@
 //---- import / export ----//
 import React, { useState } from 'react'
 import Button from '@mui/material/Button'
+import { useSelector } from 'react-redux';
 /**
  * 
  * @returns Возвращает окно ввода сообщения и кнопку оптравки сообщения
  */
 function Keyboard(props) {
+    const userName = useSelector(state => state.profile.name)
     const initialState = {
         value: "",
-        name: "ALEX",
+        name: userName,
     };
     const [state, setState] = useState(initialState);
 

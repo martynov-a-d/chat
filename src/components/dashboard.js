@@ -2,22 +2,25 @@
 import Message from './message'
 import Keyboard from './keyboard'
 import './dashboard.css';
-import Request from './request'
-import React, { useEffect, useState } from 'react'
+// import Request from './request'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
+import { useSelector, useDispatch } from 'react-redux';
+import { addMessage } from '../store/messages/actions'
 
 /**
  * Запрос API
  */
-const dataFetch = Request();
+// const dataFetch = Request();
 //---- Сообщения полученые с сервера ----//
-const initialState = dataFetch;
+// const initialState = dataFetch;
 /**
  * 
  * @returns Возвращает основное окно
  */
 function Dashboard() {
-    const [state, setState] = useState(initialState)
+    // const [state, setState] = useState(initialState)
+    const messagesStore = useSelector(store => store.messages.messageList)
     /**
      * 
      * Хук возвращает объект с параметрами URL 
@@ -32,8 +35,8 @@ function Dashboard() {
         /**
          * Если количество сообщений в state изменилось, отвечает BOT
          */
-        if (state[chatId].length && 
-            state[chatId][state[chatId].length - 1].name === "ALEX") {
+        if (messagesStore[chatId].length && 
+            messagesStore[chatId][messagesStore[chatId].length - 1].name === "ALEX") {
 
             const interval = setInterval(() => {
                 sendMessage("Ваше обращение принято, ожидайте)", "BOT");
@@ -53,14 +56,19 @@ function Dashboard() {
      * 
      * @param {Введенный текст в поле Keyboard, имя написавшего} elem 
      */
-    function sendMessage(elem, name){
-        const idAdder = state[chatId][state[chatId].length - 1].id
-        const timeAdder = newDate()
-        const newMessage = {name: name, message: elem, id: idAdder + 1, time: timeAdder};
-        setState((prevState) => ({
-            ...prevState,
-            [chatId]: [...state[chatId], newMessage],
-        }))
+    // function sendMessage(elem, name){
+    //     const idAdder = state[chatId][state[chatId].length - 1].id
+    //     const timeAdder = newDate()
+    //     const newMessage = {name: name, message: elem, id: idAdder + 1, time: timeAdder};
+    //     setState((prevState) => ({
+    //         ...prevState,
+    //         [chatId]: [...state[chatId], newMessage],
+    //     }))
+    // }
+    const dispatch = useDispatch();
+
+    const sendMessage = (elem, name) => {
+      dispatch(addMessage(elem, name, messagesStore[chatId]));
     }
     /**
      * 
@@ -71,7 +79,7 @@ function Dashboard() {
     return (
         <div className="dashboards">
             {/* <Message name={user.name} message={user.message} time={user.time} /> */}
-            <Message messages={state[chatId]} />
+            <Message messages={messagesStore[chatId]} />
             <Keyboard sendMessage={sendMessage} />
         </div>
     );
@@ -79,14 +87,16 @@ function Dashboard() {
      * 
      * @returns Возвращает текущее время (H:M)
      */
-    function newDate() {
-        const Data = new Date();
-        const Hour = Data.getHours()
-        let Min = Data.getMinutes()
-        if (Min.toString().length < 2) {
-            Min = '0' + Min;
-        }
-        return (`${Hour}:${Min}`)
-    };
 };
+
 export default Dashboard;
+
+export function newDate() {
+    const Data = new Date();
+    const Hour = Data.getHours()
+    let Min = Data.getMinutes()
+    if (Min.toString().length < 2) {
+        Min = '0' + Min;
+    }
+    return (`${Hour}:${Min}`)
+};
