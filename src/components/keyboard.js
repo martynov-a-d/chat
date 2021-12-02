@@ -13,7 +13,7 @@ function Keyboard(props) {
         name: userName,
     };
     const [state, setState] = useState(initialState);
-
+    
 /**
  * 
  * @param {Событие} e 
@@ -31,9 +31,10 @@ function Keyboard(props) {
     function handleSubmit(e) {
         e.preventDefault();
         props.sendMessage(state.value, state.name)
-        setState({
+        setState((prevState) => ({
+            ...prevState,
             value: "",
-        })
+        }))
     };
     /**
      * 

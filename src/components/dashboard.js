@@ -1,11 +1,11 @@
 //---- import / export ----//
 import Message from './message'
 import Keyboard from './keyboard'
-import './dashboard.css';
+import './dashboard.css'
 // import Request from './request'
 // import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'
 import { addMessage } from '../store/messages/actions'
 
 /**
@@ -60,7 +60,7 @@ function Dashboard() {
         // const idAdder = messagesStore[chatId][messagesStore[chatId].length - 1].id
         const timeAdder = newDate()
         const newMessage = {name: name, message: elem, time: timeAdder};
-        console.log([chatId]);
+        // console.log([chatId]);
         test(newMessage, name)
     }
     const dispatch = useDispatch();
@@ -77,7 +77,7 @@ function Dashboard() {
     return (
         <div className="dashboards">
             {/* <Message name={user.name} message={user.message} time={user.time} /> */}
-            <Message messages={messagesStore} />
+            <Message messages={messagesStore[chatId]} />
             <Keyboard sendMessage={sendMessage} />
         </div>
     );
