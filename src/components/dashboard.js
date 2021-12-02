@@ -60,12 +60,13 @@ function Dashboard() {
         // const idAdder = messagesStore[chatId][messagesStore[chatId].length - 1].id
         const timeAdder = newDate()
         const newMessage = {name: name, message: elem, time: timeAdder};
+        console.log([chatId]);
         test(newMessage, name)
     }
     const dispatch = useDispatch();
 
     const test = (elem, name) => {
-      dispatch(addMessage(elem, name, messagesStore[chatId]));
+      dispatch(addMessage(elem, name, [chatId]));
     }
     /**
      * 
