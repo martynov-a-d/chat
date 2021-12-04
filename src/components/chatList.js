@@ -5,9 +5,10 @@ import { NavLink } from "react-router-dom";
 import { addChat } from "../store/chats/actions";
 
 export const ChatList = () => {
-    
+
     const chats = useSelector((state) => state.chats.chatList)
     const dispatch = useDispatch()
+
     /**
      * 
      * @param {*} e 
@@ -28,24 +29,22 @@ export const ChatList = () => {
     }
 
     /**
-     * 
+     * ТОЛКОМ ЕЩЕ НЕ РАБОТАЕТ!!! Я в процессе осмысления )
      * @param {*} e 
      * ---- Функция удаления выбранного чата ----
      */
-    const delThisChat = (e) => {
-        const elem = chats
-        console.log(elem);
+    const delThisChat = () => {
+        dispatch(delThisChat(chats.id))
     }
 
     /**
      * 
      * @returns Возвращает меню чатов
      */
-    console.log(chats);
     return (
         <>
             <button onClick={ addNewChat }>Add chat</button>
-            <button onClick={ delThisChat }>Del chat</button>
+            <button onClick={ delThisChat }>Don'T Push</button>
             {chats.map((chat) => (
                 <NavLink
                     style={({ isActive }) => ({ color: isActive ? "white" : "grey" })} 

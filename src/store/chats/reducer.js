@@ -1,4 +1,4 @@
-import { ADD_CHAT } from "./actions";
+import { ADD_CHAT, DEL_CHAT } from "./actions";
 
 const initialState = {
   chatList: [
@@ -35,7 +35,11 @@ export const chatsReducer = (state = initialState, action) => {
             },
           ],
         };
-        default:
+      case DEL_CHAT:
+        return {
+          
+        }
+      default:
           return state;
     }
 };

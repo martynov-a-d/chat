@@ -33,6 +33,9 @@ const initialState = {
  */
 export const messagesReducer = (state = initialState, action) => {
   switch (action.type) {
+    /**
+     * Добавляет новое сообщение
+     */
     case ADD_MESSAGE: {
       const currentList = state.messageList[action.chatId] || [];
       return {
@@ -61,6 +64,9 @@ export const messagesReducer = (state = initialState, action) => {
           [action.name]: []
         }
       }
+    /**
+     * Удаляет выбраное сообщение
+     */
     case DEL_MESSAGE: {
       return
     }
