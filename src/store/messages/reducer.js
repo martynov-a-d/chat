@@ -4,26 +4,26 @@ import { ADD_MESSAGE, DEL_MESSAGE } from "./actions";
 
 const initialState = {
   messageList: {
-    chat1: [
-        {
-            name: "ALEX",
-            message: "Привет, капец заморочено!)",
-            time: "12:45",
-            id: 1,
-        },
-    ],
-    chat2: [
-        {
-            name: "ALEX",
-            message: "Привет!)",
-            time: "14:08",
-            id: 1,
-        }
-    ],
-    chat3: [
+    // chat1: [
+    //     {
+    //         name: "ALEX",
+    //         message: "Привет, капец заморочено!)",
+    //         time: "12:45",
+    //         id: 1,
+    //     },
+    // ],
+    // chat2: [
+    //     {
+    //         name: "ALEX",
+    //         message: "Привет!)",
+    //         time: "14:08",
+    //         id: 1,
+    //     }
+    // ],
+    // chat3: [
 
-    ],
-},
+    // ],
+  },  
 };
 /**
  * 

@@ -2,18 +2,18 @@ import { ADD_CHAT, DEL_CHAT } from "./actions";
 
 const initialState = {
   chatList: [
-    {
-        name: "chat1",
-        id: "chat1",
-    },
-    {
-        name: "chat2",
-        id: "chat2",
-    },
-    {
-        name: "chat3",
-        id: "chat3",
-    },
+    // {
+    //     name: "chat1",
+    //     id: "chat1",
+    // },
+    // {
+    //     name: "chat2",
+    //     id: "chat2",
+    // },
+    // {
+    //     name: "chat3",
+    //     id: "chat3",
+    // },
   ]
 };
 /**
