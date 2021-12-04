@@ -6,7 +6,8 @@ import { ChatList } from './components/chatList'
 import { Home } from './components/home'
 import { Profile } from './components/profile'
 import { Provider } from 'react-redux'
-import { store } from './store'
+import { store, persistor } from './store'
+import { PersistGate } from 'redux-persist/integration/react'
 /**
  * 
  * @returns Возвращает приложение 
@@ -14,28 +15,30 @@ import { store } from './store'
 export const App = () => {
   return (
     <Provider store={ store }>
-      <BrowserRouter>
-        <ul>
-            <li>
-              <Link to = "/">Home</Link>
-            </li>
-            <li>
-              <Link to = "chats">Chats</Link>
-            </li>
-            <li>
-              <Link to = "profile">Profile</Link>
-            </li>
-        </ul>
-        
-        <Routes>
-          <Route path="/" element={ <Home /> } />
-          <Route path="/chats">
-            <Route index element={ <ChatList /> } />
-            <Route path=":chatId" element={ <Chats /> } />
-          </Route>
-          <Route path="/profile" element={ <Profile />} />
-          <Route path="*" element={<h3>404</h3>} />
-        </Routes>
-      </BrowserRouter>
+      <PersistGate persistor={persistor}>
+        <BrowserRouter>
+          <ul>
+              <li>
+                <Link to = "/">Home</Link>
+              </li>
+              <li>
+                <Link to = "chats">Chats</Link>
+              </li>
+              <li>
+                <Link to = "profile">Profile</Link>
+              </li>
+          </ul>
+          
+          <Routes>
+            <Route path="/" element={ <Home /> } />
+            <Route path="/chats">
+              <Route index element={ <ChatList /> } />
+              <Route path=":chatId" element={ <Chats /> } />
+            </Route>
+            <Route path="/profile" element={ <Profile />} />
+            <Route path="*" element={<h3>404</h3>} />
+          </Routes>
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
 )}
