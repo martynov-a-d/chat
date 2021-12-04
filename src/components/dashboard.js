@@ -63,8 +63,8 @@ function Dashboard() {
     const dispatch = useDispatch();
     /**
      * 
-     * @param {*} elem 
-     * @param {*} name 
+     * @param {*} elem Объект имя, сообщение, время
+     * @param {*} name Имя
      */
     const test = (elem, name) => {
       dispatch(addMessage(elem, name, [chatId]))

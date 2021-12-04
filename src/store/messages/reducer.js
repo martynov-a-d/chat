@@ -1,5 +1,6 @@
 //---- import / export ----//
-import { ADD_MESSAGE } from "./actions";
+import { ADD_CHAT } from "../chats/actions";
+import { ADD_MESSAGE, DEL_MESSAGE } from "./actions";
 
 const initialState = {
   messageList: {
@@ -9,18 +10,6 @@ const initialState = {
             message: "Привет, капец заморочено!)",
             time: "12:45",
             id: 1,
-        },
-        {
-            name: "ALEX",
-            message: "Еле с гуглом сообразил как и что, к чему)))",
-            time: "12:48",
-            id: 2,
-        },
-        {
-            name: "ALEX",
-            message: "Но теперь поле ввода не обнуляется",
-            time: "12:48",
-            id: 3,
         },
     ],
     chat2: [
@@ -32,9 +21,7 @@ const initialState = {
         }
     ],
     chat3: [
-        {
-            
-        }
+
     ],
 },
 };
@@ -62,6 +49,20 @@ export const messagesReducer = (state = initialState, action) => {
           ],
         },
       };
+    }
+    /**
+     * Добавляет пустой массив в storeMessage при добавлении нового чата
+     */
+    case ADD_CHAT: 
+      return {
+        ...state,
+        messageList: {
+          ...state.messageList,
+          [action.name]: []
+        }
+      }
+    case DEL_MESSAGE: {
+      return
     }
     default:
       return state;
