@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { addChat } from "../store/chats/actions";
 
-function ChatList() {
+export const ChatList = () => {
     
     const chats = useSelector((state) => state.chats.chatList)
     const dispatch = useDispatch()
@@ -16,14 +16,13 @@ function ChatList() {
     const addNewChat = (e) => {
         e.preventDefault();
         const elem = chats
-        const newChat_elem = `chat${elem.length + 1}`
-        const newChat = {id: newChat_elem, name: newChat_elem}
-        // this.setState({
-        //     chatList: [...this.state.chatList, newChat],
-        // });
+        const newChat = `chat${elem.length + 1}`
         test(newChat)
     }
-
+    /**
+     * 
+     * @param {*} chatName 
+     */
     const test = (chatName) => {
         dispatch(addChat(chatName))
     }
@@ -42,7 +41,7 @@ function ChatList() {
      * 
      * @returns Возвращает меню чатов
      */
-    
+    console.log(chats);
     return (
         <>
             <button onClick={ addNewChat }>Add chat</button>

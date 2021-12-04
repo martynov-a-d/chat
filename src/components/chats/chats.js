@@ -8,9 +8,6 @@ import DisplayDevice from '../displayDevice'
  * ---- DisplayDevice окно на весь экран устройства 100vh, 100vw ----
  */
 export const Chats = () => {
-
-
-  
   return (
     <div className="App">
       <header className="App-header">

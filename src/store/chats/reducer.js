@@ -16,7 +16,12 @@ const initialState = {
     },
   ]
 };
-
+/**
+ * 
+ * @param {*} state 
+ * @param {*} action 
+ * @returns 
+ */
 export const chatsReducer = (state = initialState, action) => {
     switch (action.type) {
       case ADD_CHAT:
