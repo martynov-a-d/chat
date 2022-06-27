@@ -1,7 +1,7 @@
 //---- import / export ----//
 import React from 'react';
 import ChatList from './chatList';
-import Dashboard from './dashboard';
+import Dashboard from './dashboard/dashboard';
 /**
  * 
  * @returns Возвращает окно чата
@@ -14,7 +14,7 @@ function DisplayDevice() {
      * ---- ChatList список чатов и ----
      * ---- Dashboard окно сообщений ----
      */
-    
+
     return <>
         <div>
             <ChatList />

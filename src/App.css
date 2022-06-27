@@ -1,0 +1,17 @@
+div#root {
+    max-width: 768px;
+    background-color: beige;
+}
+
+div.App {
+    max-width: 768px;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+    padding: 10px;
+    list-style-type: none;
+}
