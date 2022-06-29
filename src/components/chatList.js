@@ -2,7 +2,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { addChat } from "../store/chats/actions";
+import { addChat, delChat } from "../store/chats/actions";
 
 export const ChatList = () => {
 
@@ -34,25 +34,24 @@ export const ChatList = () => {
      * ---- Функция удаления выбранного чата ----
      */
     const delThisChat = () => {
-        dispatch(delThisChat(chats.id))
+        dispatch(delChat(chats.id))
     }
-
     /**
      * 
      * @returns Возвращает меню чатов
      */
     return (
         <>
-            <button onClick={ addNewChat }>Add chat</button>
-            <button onClick={ delThisChat }>Don'T Push</button>
+            <button onClick={addNewChat}>Add chat</button>
+            <button onClick={delThisChat}>Don'T Push</button>
             {chats.map((chat) => (
                 <NavLink
-                    style={({ isActive }) => ({ color: isActive ? "white" : "grey" })} 
-                    to = {`/chats/${chat.id}`} key={chat.id}
-                    >
-                        {chat.name}
+                    style={({ isActive }) => ({ color: isActive ? "white" : "grey" })}
+                    to={`/chats/${chat.id}`} key={chat.id}
+                >
+                    {chat.name}
                 </NavLink>
-            ))}        
+            ))}
         </>
     )
 

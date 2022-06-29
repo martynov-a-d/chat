@@ -1,7 +1,8 @@
 import { ADD_CHAT, DEL_CHAT } from "./actions";
 
 const initialState = {
-  chatList: []
+  chatList: [
+  ]
 };
 /**
  * 
@@ -25,7 +26,7 @@ export const chatsReducer = (state = initialState, action) => {
     case DEL_CHAT:
       console.log(action)
       const toDelete = { ...state }
-      // toDelete.chatList = toDelete.chatList.filter((elem) => elem.id !== action)
+      toDelete.chatList = toDelete.chatList.filter((elem) => elem.id !== action)
       return toDelete
     default:
       return state;

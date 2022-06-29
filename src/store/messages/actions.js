@@ -37,12 +37,12 @@ let timeout;
 export const addMessageWithThunc = (message, name, chatId) => (dispatch) => {
   dispatch(addMessage(message, name, chatId))
 
-  if(name !== "BOT") {
-    if(timeout) {
+  if (name !== "BOT") {
+    if (timeout) {
       clearTimeout(timeout)
     }
     timeout = setTimeout(() => {
-      const botMessage = {name: "BOT", message: "i am a bot", time: message.time}
+      const botMessage = { name: "BOT", message: "i am a bot", time: message.time }
 
       dispatch(addMessage(botMessage, name, chatId))
     }, 1500);

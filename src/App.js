@@ -8,7 +8,7 @@ import { Profile } from './components/profile'
 import { Provider } from 'react-redux'
 import { store, persistor } from './store'
 import { PersistGate } from 'redux-persist/integration/react'
-import { Weather } from './components/weather/weather'
+import { Articles } from './components/additionalApi/articles'
 import './App.css'
 /**
  * 
@@ -30,10 +30,9 @@ export const App = () => {
               <Link to="profile">Profile</Link>
             </li>
             <li>
-              <Link to="weather">Weather</Link>
+              <Link to="articles">Articles</Link>
             </li>
           </ul>
-
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/chats">
@@ -41,7 +40,7 @@ export const App = () => {
               <Route path=":chatId" element={<Chats />} />
             </Route>
             <Route path="/profile" element={<Profile />} />
-            <Route path="/weather" element={<Weather />} />
+            <Route path="/articles" element={<Articles />} />
             <Route path="*" element={<h3>404</h3>} />
           </Routes>
         </BrowserRouter>

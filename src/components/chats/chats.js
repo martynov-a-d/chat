@@ -1,6 +1,7 @@
 //---- import / export ----//
 import './chats.css';
 import DisplayDevice from '../displayDevice'
+import { Weather } from '../additionalApi/weather';
 
 /**
  * 
@@ -11,6 +12,7 @@ export const Chats = () => {
   return (
     <div className="App">
       <header className="App-header">
+        <Weather />
         <DisplayDevice className="display_device" />
       </header>
     </div>

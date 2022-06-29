@@ -39,6 +39,7 @@ function Dashboard() {
      * @param {*} elem Объект имя, сообщение, время
      * @param {*} name Имя
      */
+
     const test = (elem, name) => {
         dispatch(addMessageWithThunc(elem, name, [chatId]))
     }

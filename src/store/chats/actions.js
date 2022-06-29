@@ -15,5 +15,5 @@ export const addChat = (name) => ({
  */
 export const delChat = (name) => ({
   type: DEL_CHAT,
-  name
+  name,
 })
