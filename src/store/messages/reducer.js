@@ -1,33 +1,31 @@
 //---- import / export ----//
 import { ADD_CHAT } from "../chats/actions";
-import { ADD_MESSAGE, DEL_MESSAGE } from "./actions";
+import { ADD_MESSAGE, DEL_MESSAGE, SET_MESSAGES } from "./actions";
 
-const initialState = {
-  messageList: {},
-};
+const initialState = []
 /**
  * 
  * @param {*} state 
- * @param {*} action 
+ * @param {*} param1 
  * @returns 
  */
-export const messagesReducer = (state = initialState, action) => {
-  switch (action.type) {
+export const messagesReducer = (state = initialState, { payload, type }) => {
+  switch (type) {
     /**
      * Добавляет новое сообщение
      */
     case ADD_MESSAGE: {
-      const currentList = state.messageList[action.chatId] || [];
+      const currentList = state.messagesList[payload.chatId] || [];
       return {
         ...state,
         messageList: {
-          ...state.messageList,
-          [action.chatId]: [
+          ...state.messagesList,
+          [payload.chatId]: [
             ...currentList,
             {
-              ...action.message,
+              ...payload.message,
               // id - Состоит из номера чата и количества объектов
-              id: `${action.chatId}${currentList.length}`,
+              id: `${payload.chatId}${currentList.length}`,
             },
           ],
         },
@@ -40,8 +38,8 @@ export const messagesReducer = (state = initialState, action) => {
       return {
         ...state,
         messageList: {
-          ...state.messageList,
-          [action.name]: []
+          ...state.messagesList,
+          [payload.name]: []
         }
       }
     /**
@@ -50,6 +48,8 @@ export const messagesReducer = (state = initialState, action) => {
     case DEL_MESSAGE: {
       return
     }
+    case SET_MESSAGES:
+      return payload
     default:
       return state;
   }

@@ -1,13 +1,17 @@
 //---- import / export ----//
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { addChat, delChat } from "../store/chats/actions";
+import { addChatWithFB, initialChat } from "../store/chats/actions";
 
 export const ChatList = () => {
 
-    const chats = useSelector((state) => state.chats.chatList)
+    const chatList = useSelector((state) => state.chats)
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(initialChat())
+    }, [dispatch]);
 
     /**
      * 
@@ -16,26 +20,11 @@ export const ChatList = () => {
      */
     const addNewChat = (e) => {
         e.preventDefault();
-        const elem = chats
-        const newChat = `chat${elem.length + 1}`
-        test(newChat)
-    }
-    /**
-     * 
-     * @param {*} chatName 
-     */
-    const test = (chatName) => {
-        dispatch(addChat(chatName))
+        const elem = chatList;
+        const newChat = `chat${elem.length + 1}`;
+        dispatch(addChatWithFB({ name: newChat, id: newChat }))
     }
 
-    /**
-     * ТОЛКОМ ЕЩЕ НЕ РАБОТАЕТ!!! Я в процессе осмысления )
-     * @param {*} e 
-     * ---- Функция удаления выбранного чата ----
-     */
-    const delThisChat = () => {
-        dispatch(delChat(chats.id))
-    }
     /**
      * 
      * @returns Возвращает меню чатов
@@ -43,15 +32,14 @@ export const ChatList = () => {
     return (
         <>
             <button onClick={addNewChat}>Add chat</button>
-            <button onClick={delThisChat}>Don'T Push</button>
-            {chats.map((chat) => (
+            {chatList.map((elem) =>
                 <NavLink
                     style={({ isActive }) => ({ color: isActive ? "white" : "grey" })}
-                    to={`/chats/${chat.id}`} key={chat.id}
+                    to={`/chats/${elem.id}`} key={elem.id}
                 >
-                    {chat.name}
+                    {elem.name}
                 </NavLink>
-            ))}
+            )}
         </>
     )
 

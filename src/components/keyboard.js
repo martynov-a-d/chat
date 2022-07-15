@@ -13,21 +13,21 @@ function Keyboard(props) {
         name: userName,
     };
     const [state, setState] = useState(initialState);
-    
-/**
- * 
- * @param {Событие} e 
- */
+
+    /**
+     * 
+     * @param {Событие} e 
+     */
     function handleChange(e) {
         setState((prevState) => ({
             ...prevState,
             value: e.target.value
         }));
     };
-/**
- * 
- * @param {Событие} e 
- */
+    /**
+     * 
+     * @param {Событие} e 
+     */
     function handleSubmit(e) {
         e.preventDefault();
         props.sendMessage(state.value, state.name)
@@ -41,13 +41,13 @@ function Keyboard(props) {
      * @returns Рендерит онко ввода сообщений
      */
 
-        return (
-            <form className="keyboard_block" onSubmit={ handleSubmit }>
-                <input type="text" className="keyboard_window" value={ state.value } onChange={ handleChange }/>
-                {/* <input type="submit" className="keyboard_btn" value="send" /> */}
-                <Button variant="text" type="submit" className="keyboard_btn">send</Button>
-            </form>
-        )
+    return (
+        <form className="keyboard_block" onSubmit={handleSubmit}>
+            <input type="text" className="keyboard_window" value={state.value} onChange={handleChange} />
+            {/* <input type="submit" className="keyboard_btn" value="send" /> */}
+            <Button variant="text" type="submit" className="keyboard_btn">send</Button>
+        </form>
+    )
 
 }
 export default Keyboard;

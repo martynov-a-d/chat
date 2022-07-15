@@ -6,13 +6,13 @@ import { apiArticles } from "./apiBox"
 import { selectorArticles } from "../../store/additionalApi/selectors"
 
 export const Articles = () => {
-    const [dataArticles, GetArticles] = useState([])
     const dispatch = useDispatch()
-    dispatch(getArticlesData(dataArticles))
+    const [dataArticles, GetArticles] = useState([])
     useEffect(() => {
         dataHandler(apiArticles, GetArticles)
     }, [])
     const articles = useSelector(selectorArticles)
+    dispatch(getArticlesData(dataArticles))
     return <>
         <div className="articles">
             <ul>

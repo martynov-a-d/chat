@@ -1,9 +1,9 @@
 //---- import / export ----//
-import { CheckBoxToggle } from "./actions";
+import { SetUserName, SignIn, SignOut } from "./actions";
 
 const startState = {
-    checkbox: false,
-    name: 'ALEX'
+    name: "",
+    auth: false,
 }
 /**
  * 
@@ -12,12 +12,21 @@ const startState = {
  */
 export function profileReducer(state = startState, action) {
     switch (action.type) {
-        case CheckBoxToggle:
+        case SetUserName:
             return {
                 ...state,
-                checkbox: !state.checkbox
+                name: action.name
             }
-    
+        case SignIn:
+            return {
+                ...state,
+                auth: true
+            }
+        case SignOut:
+            return {
+                ...state,
+                auth: false
+            }
         default:
             return state;
     }

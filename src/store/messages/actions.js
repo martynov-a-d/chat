@@ -1,6 +1,10 @@
+import { onValue } from "firebase/database";
+import { messagesRef } from "../../services/firebase";
+
 //---- import / export ----//
 export const ADD_MESSAGE = "MESSAGES::ADD_MESSAGE"
 export const DEL_MESSAGE = "MESSAGES::DEL_MESSAGE"
+export const SET_MESSAGES = "MESSAGES::SET_MESSAGES"
 /**
  * 
  * @param {*} message 
@@ -26,6 +30,11 @@ export const delMessage = (chatId, toDelete) => ({
   toDelete,
 })
 
+export const setMessages = (messages) => ({
+  type: SET_MESSAGES,
+  payload: messages,
+})
+
 let timeout;
 /**
  * 
@@ -48,4 +57,14 @@ export const addMessageWithThunc = (message, name, chatId) => (dispatch) => {
     }, 1500);
   }
 
+}
+
+export const initMessages = () => (dispatch) => {
+  onValue(messagesRef, (snapshot) => {
+    const newMessage = [];
+    snapshot.forEach((elem) => {
+      newMessage[elem.key] = Object.values(elem.val().messagesList || []);
+    })
+    dispatch(setMessages(newMessage))
+  })
 }
