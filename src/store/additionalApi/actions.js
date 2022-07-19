@@ -8,18 +8,21 @@ export const REQUEST_ITEMS_FAILURE = "REQUEST::ITEMS_FAILURE";
  * 
  * Middleware по статусам
  */
-export const getItemsLoading = () => ({
+export const getItemsLoading = (component) => ({
     type: REQUEST_ITEMS_LOADING,
+    component: component,
 });
 
-export const getItemsSuccess = (items) => ({
+export const getItemsSuccess = (items, component) => ({
     type: REQUEST_ITEMS_SUCCESS,
     payload: items,
+    component: component,
 });
 
-export const getItemsFailure = (err) => ({
+export const getItemsFailure = (err, component) => ({
     type: REQUEST_ITEMS_FAILURE,
     payload: err,
+    component: component,
 });
 
 /**

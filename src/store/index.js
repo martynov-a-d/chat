@@ -3,7 +3,7 @@ import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import { profileReducer } from "./profile/reducer";
 import { chatsReducer } from "./chats/reducer";
 import { messagesReducer } from "./messages/reducer";
-import { weatherReducer, articlesReducer } from "./additionalApi/reducer";
+import { weatherReducer, articlesReducer, externalApiStatusReducer } from "./additionalApi/reducer";
 import thunk from "redux-thunk"
 // import createSagaMiddleware from "redux-saga"
 import storage from "redux-persist/lib/storage"
@@ -21,6 +21,7 @@ const persistedReducer = persistReducer(persistConfig, combineReducers({
     profile: profileReducer,
     chats: chatsReducer,
     messages: messagesReducer,
+    status: externalApiStatusReducer,
     weather: weatherReducer,
     articles: articlesReducer,
 })

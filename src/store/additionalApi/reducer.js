@@ -1,21 +1,36 @@
-import { GET_WEATHER_DATA, GET_ARTICLES_DATA, REQUEST_ITEMS_LOADING } from "./actions";
+import { GET_WEATHER_DATA, GET_ARTICLES_DATA, REQUEST_ITEMS_LOADING, REQUEST_ITEMS_SUCCESS, REQUEST_ITEMS_FAILURE } from "./actions";
 
 
 const initialState = []
 
 export const externalApiStatusReducer = (state = initialState, payload) => {
-    switch (payload) {
+    switch (payload.type) {
         case REQUEST_ITEMS_LOADING:
             return {
                 ...state,
                 request: {
+                    component: payload.component,
                     status: "REQUEST_STATUS.LOADING",
-                    error: "",
                 }
             }
-
+        case REQUEST_ITEMS_SUCCESS:
+            return {
+                ...state,
+                request: {
+                    component: payload.component,
+                    status: "REQUEST_STATUS_SUCCESS",
+                }
+            }
+        case REQUEST_ITEMS_FAILURE:
+            return {
+                ...state,
+                request: {
+                    component: payload.component,
+                    error: "ERROR",
+                }
+            }
         default:
-            break;
+            return state;
     }
 }
 

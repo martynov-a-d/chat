@@ -10,8 +10,8 @@ export const Articles = () => {
     const dispatch = useDispatch()
     const [dataArticles, GetArticles] = useState([])
     useEffect(() => {
-        dataHandler(apiArticles, GetArticles)
-    }, [])
+        dataHandler(apiArticles, GetArticles, dispatch, "articles")
+    }, [dispatch])
     dispatch(getArticlesData(dataArticles))
     const articles = useSelector(selectorArticles)
     if (articles) {

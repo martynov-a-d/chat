@@ -11,8 +11,8 @@ export const Weather = () => {
     dispatch(getWeatherData(dataWeather))
 
     useEffect(() => {
-        dataHandler(apiWeather, GetWether)
-    }, [])
+        dataHandler(apiWeather, GetWether, dispatch, "weather")
+    }, [dispatch])
     const weather = useSelector(selectorWeather)
     const hourly = weather.hourly
     const hourly_units = weather.hourly_units
