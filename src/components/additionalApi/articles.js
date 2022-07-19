@@ -6,18 +6,21 @@ import { apiArticles } from "./apiBox"
 import { selectorArticles } from "../../store/additionalApi/selectors"
 
 export const Articles = () => {
+
     const dispatch = useDispatch()
     const [dataArticles, GetArticles] = useState([])
     useEffect(() => {
         dataHandler(apiArticles, GetArticles)
     }, [])
-    const articles = useSelector(selectorArticles)
     dispatch(getArticlesData(dataArticles))
-    return <>
-        <div className="articles">
-            <ul>
-                {articles.map((elem) => (<li key={elem.id}>{elem.title}</li>))}
-            </ul>
-        </div>
-    </>
+    const articles = useSelector(selectorArticles)
+    if (articles) {
+        return <>
+            <div className="articles">
+                <ul>
+                    {articles.map((elem) => (<li key={elem.id}>{elem.title}</li>))}
+                </ul>
+            </div>
+        </>
+    }
 }
