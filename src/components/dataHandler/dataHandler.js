@@ -1,12 +1,12 @@
 import { getItemsFailure, getItemsLoading, getItemsSuccess } from "../../store/additionalApi/actions";
 
-export const dataHandler = async (api, elem, dispatch, component) => {
+const dataHandler = () => async (api, elem, component, dispatch) => {
     dispatch(getItemsLoading(component));
     try {
         await fetch(api)
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error("error!")
+                    throw new Error("not ok!")
                 }
                 return response.json()
             })
@@ -18,3 +18,5 @@ export const dataHandler = async (api, elem, dispatch, component) => {
         dispatch(getItemsFailure(error, component));
     }
 };
+
+export default dataHandler()

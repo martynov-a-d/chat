@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { dataHandler } from "../dataHandler/dataHandler"
+import dataHandler from "../dataHandler/dataHandler"
 import { apiWeather } from "./apiBox"
 import { getWeatherData } from "../../store/additionalApi/actions"
 import { selectorWeather } from "../../store/additionalApi/selectors"
@@ -11,7 +11,7 @@ export const Weather = () => {
     dispatch(getWeatherData(dataWeather))
 
     useEffect(() => {
-        dataHandler(apiWeather, GetWether, dispatch, "weather")
+        dataHandler(apiWeather, GetWether, "weather", dispatch)
     }, [dispatch])
     const weather = useSelector(selectorWeather)
     const hourly = weather.hourly
