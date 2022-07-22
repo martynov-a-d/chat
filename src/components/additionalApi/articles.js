@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { getArticlesData } from "../../store/additionalApi/actions"
-import dataHandler from "../dataHandler/dataHandler"
-import { apiArticles } from "./apiBox"
-import { selectorArticles } from "../../store/additionalApi/selectors"
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getArticlesData } from "../../store/additionalApi/actions";
+import dataHandler from "../../store/additionalApi/actions";
+import { apiArticles } from "./apiBox";
+import { selectorArticles } from "../../store/additionalApi/selectors";
 
 export const Articles = () => {
 
-    const dispatch = useDispatch()
-    const [dataArticles, GetArticles] = useState([])
+    const dispatch = useDispatch();
+    const [dataArticles, GetArticles] = useState([]);
     useEffect(() => {
         dataHandler(apiArticles, GetArticles, "articles", dispatch)
-    }, [dispatch])
-    dispatch(getArticlesData(dataArticles))
-    const articles = useSelector(selectorArticles)
+    }, [dispatch]);
+    dispatch(getArticlesData(dataArticles));
+    const articles = useSelector(selectorArticles);
     if (articles) {
         return <>
             <div className="articles">
@@ -22,5 +22,5 @@ export const Articles = () => {
                 </ul>
             </div>
         </>
-    }
-}
+    };
+};

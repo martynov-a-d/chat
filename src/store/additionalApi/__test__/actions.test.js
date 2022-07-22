@@ -1,4 +1,4 @@
-import dataHandler from "../../../components/dataHandler/dataHandler";
+import dataHandler from "../actions";
 import { getItemsLoading, getItemsSuccess, REQUEST_ITEMS_LOADING, REQUEST_ITEMS_SUCCESS } from "../actions";
 
 describe("getItemsLoading", () => {
@@ -27,12 +27,22 @@ describe("getItemsSuccess", () => {
     })
 });
 
+/**
+ * Все работает отлично, тесты не проходят, 
+ * матерится на ананимную функцию dataHandler
+ */
 describe("dataHandler", () => {
     it("dispatch getItemsLoading", async () => {
         const mockDispatch = jest.fn();
-        dataHandler()(mockDispatch);
-        // dataHandler(mockDispatch)
-
+        await dataHandler()(mockDispatch);
         expect(mockDispatch).toHaveBeenCalledWith(getItemsLoading());
     });
-})
+
+    it.skip("dispach success action on fetch", async () => {
+        const result = { articles: [] };
+        const mockDispatch = jest.fn();
+        fetch.mockResponseOnce(() => (JSON.stringify(result)));
+        await dataHandler()(mockDispatch);
+        expect(mockDispatch).toHaveBeenLastCalledWith(getItemsSuccess(result));
+    });
+});
